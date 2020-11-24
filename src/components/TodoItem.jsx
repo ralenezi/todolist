@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const TodoItem = ({ todo }) => {
   return (
@@ -7,7 +7,7 @@ const TodoItem = ({ todo }) => {
         Name: {todo.name} - Status: {todo.status} - Priority: {todo.priority}
       </li>
     </div>
-  )
-}
+  );
+};
 
-export default TodoItem
+export default TodoItem;
