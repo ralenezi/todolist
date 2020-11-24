@@ -1,42 +1,43 @@
-import React, { useState } from 'react'
-import todoStore from '../../stores/todoStore'
+import React, { useState } from "react";
+import todoStore from "../../stores/todoStore";
+
 const CreateButton = () => {
-  const [todo, setTodo] = useState({ name: '', status: '', priority: '' })
+  const [todo, setTodo] = useState({ name: "", status: "", priority: "" });
   const handleChange = (e) => {
-    setTodo({ ...todo, [e.target.name]: e.target.value })
-  }
-  console.log('test ', todo)
+    setTodo({ ...todo, [e.target.name]: e.target.value });
+  };
+  console.log("test ", todo);
 
   const handleSubmit = (e) => {
     // e.preventDefault()
-    todoStore.createTodo(todo)
-  }
+    todoStore.createTodo(todo);
+  };
   return (
     <div>
       <input
-        name='name'
-        type='text'
-        placeholder='enter name of the todo'
+        name="name"
+        type="text"
+        placeholder="enter name of the todo"
         onChange={handleChange}
-      />{' '}
+      />{" "}
       <br />
       <input
-        name='status'
-        type='text'
-        placeholder='enter status of the todo'
+        name="status"
+        type="text"
+        placeholder="enter status of the todo"
         onChange={handleChange}
-      />{' '}
+      />{" "}
       <br />
       <input
-        name='priority'
-        type='text'
-        placeholder='enter priority of the todo'
+        name="priority"
+        type="text"
+        placeholder="enter priority of the todo"
         onChange={handleChange}
-      />{' '}
+      />{" "}
       <br />
       <button onClick={handleSubmit}>Create Todo</button>
     </div>
-  )
-}
+  );
+};
 
-export default CreateButton
+export default CreateButton;
