@@ -38,17 +38,38 @@ class TodoStore {
   updateTodo = async (updatedTodo) => {
     try {
       await axios.put(
-        (`http: //localhost:8000/todos/${updatedTodo.id}`, updatedTodo)
+        `http://localhost:8000/todos/${updatedTodo.id}`,
+        updatedTodo
       )
-
-      const todo = this.todos.find((todo) => todo.id === updatedTodo.id)
-      for (const key in todo) todo[key] = updatedTodo[key]
-      // todo.slug = slugify(todo.name)
-      todo.status = !todo.status
+      await this.fetchTodos()
+      // const todo = this.todos.find((todo) => todo.id === updatedTodo.id)
+      // todo.status = !todo.status
+      // for (const key in todo) todo[key] = updatedTodo[key]
     } catch (error) {
       console.log('TodoStore -> updatedTodo -> error', error)
     }
   }
+
+  //
+
+  // updateItem = async (updatedItem) => {
+  //   try {
+  //     await axios.put(
+  //       `http://localhost:8000/items/${updatedItem.id}`,
+  //       updatedItem
+  //     )
+  //     const item = this.items.find((item) => item.id === updatedItem.id)
+  //     for (const key in item) item[key] = updatedItem[key]
+  //     item.slug = slugify(item.name)
+  //   } catch (error) {
+  //     console.error(
+  //       '🚀 ~ file: itemStore.js ~ line 55 ~ ItemStore ~ updateItem= ~ error',
+  //       error
+  //     )
+  //   }
+  //   console.log('ItemStore -> updateItem -> updatedItem', updatedItem)
+  // }
+  //
 }
 const todoStore = new TodoStore()
 todoStore.fetchTodos()

@@ -1,14 +1,12 @@
-import React from "react";
-import todoStore from "../../stores/todoStore";
+import React from 'react'
+import todoStore from '../../stores/todoStore'
 
 const DeleteButton = ({ todoId }) => {
   return (
     <div>
-      <button onClick={() => todoStore.deleteTodo(todoId)}>
-        Delete Button
-      </button>
+      <button onClick={() => todoStore.deleteTodo(todoId)}>🗑</button>
     </div>
-  );
-};
+  )
+}
 
-export default DeleteButton;
+export default DeleteButton

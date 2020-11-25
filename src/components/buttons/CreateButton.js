@@ -3,15 +3,10 @@ import todoStore from '../../stores/todoStore'
 
 const CreateButton = () => {
   const [todo, setTodo] = useState({ name: '', status: false, priority: '' })
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setTodo({ ...todo, [e.target.name]: e.target.value })
-  }
-  console.log('test ', todo)
 
-  const handleSubmit = (e) => {
-    // e.preventDefault()
-    todoStore.createTodo(todo)
-  }
+  const handleSubmit = () => todoStore.createTodo(todo)
   return (
     <div>
       <input
@@ -21,12 +16,11 @@ const CreateButton = () => {
         onChange={handleChange}
       />{' '}
       <br />
-      <input
-        name='priority'
-        type='text'
-        placeholder='enter priority of the todo'
-        onChange={handleChange}
-      />{' '}
+      <select name='priority' onChange={handleChange}>
+        <option value='high'>high</option>
+        <option value='medium'>medium</option>
+        <option value='low'>low</option>
+      </select>
       <br />
       <button onClick={handleSubmit}>Create Todo</button>
     </div>
